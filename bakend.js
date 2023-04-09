@@ -1,45 +1,30 @@
-class Contador {
-    static cuentaGeneral = 0;
-
-    constructor(responsable) {
-        this.responsable = responsable;
-        this.cuentaPersonal = 0;
+class ProductManager {
+    constructor() {
+      this.products = [];
+      this.nextId = 1;
     }
-    getResponsable() {
-        return this.responsable;
-    
-    } 
-    
-    getCuentaIndividual() {
-     return this.cuentaPersonal;
+  
+    addProduct(product) {
+      if (this.products.some(p => p.code === product.code)) {
+        console.log(`Error: product with code ${product.code} already exists`);
+        return;
+      }
+  
+      product.id = this.nextId++;
+      this.products.push(product);
     }
-
-    getCuentaGobla() {
-        return Contador.cuentaGeneral;
-
+  
+    getProduct() {
+      return this.products;
     }
-
-contar() {
-    this.cuentaPersonal += 1;
-    Contador.cuentaGeneral += 1;
-
-}
-
-
-}
-
-
-
-const responsable1 = new Contador('Carlos');
-const responsable2 = new Contador('Carolina');
-
-responsable1.contar();
-responsable2.contar();
-responsable1.contar();
-
-console.log(responsable1.getResponsable());
-console.log(responsable2.getResponsable());
-console.log(responsable1.getCuentaGobla());
-
-
-
+  
+    getProductById(id) {
+      const product = this.products.find(p => p.id === id);
+      if (product) {
+        return product;
+      } else {
+        console.log("Error: NOT FOUND");
+      }
+    }
+  }
+  

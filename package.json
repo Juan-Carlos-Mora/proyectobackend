@@ -1,0 +1,29 @@
+{
+  "name": "proyectobackend",
+  "version": "1.0.0",
+  "description": "proyecto",
+  "main": "bakend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend.js",
+    "dev": "nodemon backend.js"
+  },
+  "author": "Juan carlos mora",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juan-Carlos-Mora/proyectobackend.git"
+  },
+  "keywords": [
+    "271212David..!!"
+  ],
+  "bugs": {
+    "url": "https://github.com/Juan-Carlos-Mora/proyectobackend/issues"
+  },
+  "homepage": "https://github.com/Juan-Carlos-Mora/proyectobackend#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node": "^19.8.1",
+    "nodemon": "^2.0.22"
+  }
+}
