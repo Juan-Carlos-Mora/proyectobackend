@@ -5,8 +5,8 @@
   "main": "bakend.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend.js",
-    "dev": "nodemon backend.js"
+    "start": "backend.js",
+    "dev": "backend.js"
   },
   "author": "Juan carlos mora",
   "license": "ISC",
