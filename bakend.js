@@ -36,9 +36,9 @@ class ProductManager {
   
      getProductById(id) {
       const productId = Number(id);
-      const product = this.products.find(pro => pro.id === productId);
+      const product = this.products.find(products => products.id === productId);
       if (product) {
-        return console.log("Producto en el Arrays");
+        return console.log(product);
       } else {
         console.log("Error: NOT FOUND");
       }
@@ -52,4 +52,4 @@ class ProductManager {
   product.addProduct('Ak-47 Asimov','Excelente fusil de largo alcance',19.99,'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV092lnYmGmOHLP7LWnn9u5MRjjeyPo9qgjlfnqUtvMGHzIICWew45aV-B_1bqw7u5gse16JTKwXBnvigg5WGdwUL3VYtbUA/360fx360f','25005','100');
   product.addProduct('Ak-47 Anubis','Excelente fusil de largo alcance',11.99,'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhnwMzJegJB49C5mpnbxsjmNr_ummJW4NFOhujT8om7igLs8xc9ZG_yIdSTJwE4NwnT_ge5xuu6h5a8tZzNnSFnvnQn5nzbzAv330_AxVvPyA/360fx360f','25006','10');
   product.getProduct();
-  product.getProductById(2);
+  product.getProductById(1);
