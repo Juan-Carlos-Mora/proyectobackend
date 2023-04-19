@@ -42,8 +42,6 @@ class ProductManager {
       return;
     }
 
-
-
     this.products.push(New_product);
     this.saveToFile();
   
