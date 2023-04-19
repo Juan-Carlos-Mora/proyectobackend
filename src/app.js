@@ -1,4 +1,5 @@
 const express = require('express');
+const http = require('http');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -48,8 +49,7 @@ app.delete('/products/:id', (req, res) => {
   }
 });
 
-const port = 3000;
+const port = 8000;
 app.listen(port, () => {
-  console.log(`Server listening on port \${port}`);
+  console.log(`Server listening on port ${port}`);
 });
-

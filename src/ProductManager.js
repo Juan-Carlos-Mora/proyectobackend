@@ -35,7 +35,7 @@ class ProductManager {
     New_product.id = this.nextId;
     this.nextId++;
     const existingProduct = this.products.find(pro => pro.code === New_product.code)
-    const existingProduct2 = this.products.find(pro => pro.description === New_product.description)
+    const existingProduct2 = this.products.find(pro => pro.title === New_product.title)
     if (existingProduct, existingProduct2) {
       console.log('Error: Product with code already exists')
       return;
@@ -95,12 +95,12 @@ class ProductManager {
 
   // Agregar un producto
   productManager.addProduct({
-    title: 'Ak-47 Asimov',
-    description: 'Fusil de larga distancia con mucha capacidad de bajas',
-    price: 18.99,
+    title: 'Ak-47 Neon',
+    description: 'Fusil de larga distancia con mucha capacidad de baj',
+    price: 280.99,
     thumbnail: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV092lnYmGmOHLP7LWnn9u5MRjjeyPo9qgjlfnqUtvMGHzIICWew45aV-B_1bqw7u5gse16JTKwXBnvigg5WGdwUL3VYtbUA/360fx360f',
-    code: '25004',
-    stock: 1000,
+    code: '25008',
+    stock: 100,
     id:productManager.getNextId
   });
   
@@ -109,7 +109,7 @@ class ProductManager {
   console.log(allProducts);
   
   // Obtener un producto por id
-  const productById = productManager.getProductById(1);
+  const productById = productManager.getProductById(4);
   console.log(productById);
   
   // Actualizar un producto
