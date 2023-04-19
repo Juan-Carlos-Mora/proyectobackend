@@ -1,15 +1,19 @@
 const fs = require('fs');
 class ProductManager {
   
-  constructor(path) {
+  constructor(path = 'productos.json') {
     this.path = path;
     this.products = [];
     this.nextId = 1;
     
     try{
-      const data = fs.readFileSync(this.path, 'utf-8');
-      this.products = JSON.parse(data);
-      this.nextId = this.getNextId();
+      const data =   fs.readFileSync(this.path, 'utf-8');
+      try {
+        this.products = JSON.parse(data);
+      } catch (err) {
+        console.error(err);
+      }
+      this.nextId = this.getNextId();  
     }
     catch (err){
       if(err.code === 'ENOENT'){
@@ -34,13 +38,11 @@ class ProductManager {
   addProduct(New_product) {
     New_product.id = this.nextId;
     this.nextId++;
-    const existingProduct = this.products.find(pro => pro.code === New_product.code)
-    const existingProduct1 = this.products.find(pro => pro.title === New_product.title)
-    const existingProduct2 = this.products.find(pro => pro.description === New_product.description)
-    if (existingProduct, existingProduct1, existingProduct2) {
-      console.log('Error: Product with code already exists')
+    const existingProducts = new Map(this.products.map(p => [p.code, p]));
+      if (existingProducts.has(New_product.code)) {
+      console.log('Error: Product with code already exists');
       return;
-    }
+  }
 
 
 
@@ -57,10 +59,12 @@ class ProductManager {
 
      getProductById(id) {
       const product = this.products.find(products => products.id === id);
-      if (product) {
-        return console.log(product);
-      } else {
+      if (!product) {
         console.log("Error: NOT FOUND");
+        return;  
+        
+      } else {
+        console.log(product);
       }
     }
   
@@ -86,23 +90,27 @@ class ProductManager {
       }
     }
   
-    saveToFile() {
-      fs.writeFileSync(this.path, JSON.stringify(this.products), 'utf-8');
+     async saveToFile() {
+      try {
+        await fs.promises.writeFile(this.path, JSON.stringify(this.products), 'utf-8');
+      } catch (err) {
+        console.error(err);
+        }
+      }
     }
-  }
 
 
 // aqui identifico las llamadas para las creacion, busquedas, actualizacion y delete del maestro de articulo.
 
   const productManager = new ProductManager('productos.json');
-
+ 
   // Agregar un producto
   productManager.addProduct({
-    title: 'Ak-47 Arabes',
+    title: 'Ak-47 Anubis',
     description: 'Fusil de larga distancia con mucha capacidad de baja',
-    price: 18.99,
+    price: 18.944,
     thumbnail: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV092lnYmGmOHLP7LWnn9u5MRjjeyPo9qgjlfnqUtvMGHzIICWew45aV-B_1bqw7u5gse16JTKwXBnvigg5WGdwUL3VYtbUA/360fx360f',
-    code: '25007',
+    code: '25009',
     stock: 100,
     id:productManager.getNextId
   });
@@ -128,6 +136,7 @@ class ProductManager {
   
   // Eliminar un producto
  productManager.deleteProduct();
+
 
 
 
