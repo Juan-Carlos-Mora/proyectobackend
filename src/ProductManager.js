@@ -95,12 +95,12 @@ class ProductManager {
 
   // Agregar un producto
   productManager.addProduct({
-    title: 'Ak-47 Neon',
+    title: 'Ak-47 Legion',
     description: 'Fusil de larga distancia con mucha capacidad de baj',
-    price: 280.99,
+    price: 28.99,
     thumbnail: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV092lnYmGmOHLP7LWnn9u5MRjjeyPo9qgjlfnqUtvMGHzIICWew45aV-B_1bqw7u5gse16JTKwXBnvigg5WGdwUL3VYtbUA/360fx360f',
-    code: '25008',
-    stock: 100,
+    code: '25011',
+    stock: 10,
     id:productManager.getNextId
   });
   
@@ -109,7 +109,7 @@ class ProductManager {
   console.log(allProducts);
   
   // Obtener un producto por id
-  const productById = productManager.getProductById(4);
+  const productById = productManager.getProductById();
   console.log(productById);
   
   // Actualizar un producto

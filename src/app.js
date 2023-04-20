@@ -1,5 +1,4 @@
 const express = require('express');
-const http = require('http');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -8,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const ProductManager = require('./ProductManager.js');
 
-const productManager = new ProductManager('./productos.json');
+const productManager = new ProductManager('productos.json');
 
 
 app.get('/products', (req, res) => {
