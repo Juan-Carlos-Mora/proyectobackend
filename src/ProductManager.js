@@ -95,12 +95,12 @@ class ProductManager {
 
   // Agregar un producto
   productManager.addProduct({
-    title: 'Ak-47 Legion',
+    title: 'Ak-47 morrado',
     description: 'Fusil de larga distancia con mucha capacidad de baj',
     price: 28.99,
     thumbnail: 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV092lnYmGmOHLP7LWnn9u5MRjjeyPo9qgjlfnqUtvMGHzIICWew45aV-B_1bqw7u5gse16JTKwXBnvigg5WGdwUL3VYtbUA/360fx360f',
-    code: '25011',
-    stock: 10,
+    code: '25010',
+    stock: 100,
     id:productManager.getNextId
   });
   

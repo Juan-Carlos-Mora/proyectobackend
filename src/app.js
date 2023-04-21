@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const port = 8080;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,24 +11,25 @@ const ProductManager = require('./ProductManager.js');
 const productManager = new ProductManager('productos.json');
 
 
-app.get('/products', (req, res) => {
+app.get('/api', (req, res) => {
   const products = productManager.getProduct();
   res.json(products);
 });
 
-app.get('/products/:id', (req, res) => {
+app.get('/api/products/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const product = productManager.getProductById(id);
   res.json(product);
+  console.log(product);
 });
 
-app.post('/products', (req, res) => {
+app.post('/api/products', (req, res) => {
   const newProduct = req.body;
   productManager.addProduct(newProduct);
   res.json(newProduct);
 });
 
-app.put('/products/:id', (req, res) => {
+app.put('/api/products/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const updatedProduct = req.body;
   const success = productManager.updateProduct(id, updatedProduct);
@@ -38,7 +40,7 @@ app.put('/products/:id', (req, res) => {
   }
 });
 
-app.delete('/products/:id', (req, res) => {
+app.delete('/api/products/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const success = productManager.deleteProduct(id);
   if (success) {
@@ -48,7 +50,6 @@ app.delete('/products/:id', (req, res) => {
   }
 });
 
-const port = 8000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
